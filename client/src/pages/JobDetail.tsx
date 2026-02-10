@@ -4,6 +4,7 @@ import { JOBS } from "@/lib/mockData";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link, useRoute } from "wouter";
+import { useToast } from "@/hooks/use-toast";
 import { MapPin, Clock, Banknote, ArrowLeft, Share2, Building2 } from "lucide-react";
 import NotFound from "./not-found";
 
@@ -11,12 +12,47 @@ export default function JobDetail() {
   const [match, params] = useRoute("/jobs/:id");
   const job = JOBS.find(j => j.id === params?.id || `${j.id}-dup` === params?.id);
 
+  const { toast } = useToast();
+
+  const handleApply = () => {
+    if (job?.applyLink) {
+      window.open(job.applyLink, "_blank");
+    } else {
+      toast({
+        title: "Application Link Unavailable",
+        description: "Please check back later for the application link.",
+      });
+    }
+  };
+
+  const handleShare = async () => {
+    const shareData = {
+      title: job?.title,
+      text: `Check out this job at ${job?.company}`,
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        toast({
+          title: "Link Copied",
+          description: "Job link copied to clipboard.",
+        });
+      }
+    } catch (err) {
+      console.error("Error sharing:", err);
+    }
+  };
+
   if (!job) return <NotFound />;
 
   return (
     <div className="min-h-screen flex flex-col bg-background font-sans">
       <Navbar />
-      
+
       <div className="container mx-auto px-4 md:px-6 py-8">
         <Link href="/jobs">
           <Button variant="ghost" className="mb-6 pl-0 text-muted-foreground hover:text-primary">
@@ -40,10 +76,13 @@ export default function JobDetail() {
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  <Button variant="outline" size="icon">
+                  <Button variant="outline" size="icon" onClick={handleShare}>
                     <Share2 className="h-4 w-4" />
                   </Button>
-                  <Button className="bg-accent hover:bg-accent/90 text-white font-semibold px-6 shadow-lg shadow-accent/20">
+                  <Button
+                    className="bg-accent hover:bg-accent/90 text-white font-semibold px-6 shadow-lg shadow-accent/20"
+                    onClick={handleApply}
+                  >
                     Apply Now
                   </Button>
                 </div>
@@ -83,7 +122,7 @@ export default function JobDetail() {
                   </ul>
                 </section>
 
-                 <section>
+                <section>
                   <h3 className="text-xl font-bold font-heading mb-4">Eligible Batches</h3>
                   <div className="flex gap-2">
                     {job.batch.map((b) => (
@@ -113,14 +152,17 @@ export default function JobDetail() {
                   <span className="font-medium">Developer</span>
                 </div>
               </div>
-              <Button className="w-full mt-6 bg-accent hover:bg-accent/90 text-white font-semibold h-12">
+              <Button
+                className="w-full mt-6 bg-accent hover:bg-accent/90 text-white font-semibold h-12"
+                onClick={handleApply}
+              >
                 Apply Now
               </Button>
             </div>
           </div>
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );

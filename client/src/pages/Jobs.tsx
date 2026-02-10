@@ -1,3 +1,4 @@
+import { useState, useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JobCard from "@/components/JobCard";
@@ -8,28 +9,78 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Search, Filter } from "lucide-react";
 
 export default function Jobs() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+  const [selectedExperience, setSelectedExperience] = useState<string[]>([]);
+
+  const toggleFilter = (item: string, current: string[], setter: (val: string[]) => void) => {
+    if (current.includes(item)) {
+      setter(current.filter(i => i !== item));
+    } else {
+      setter([...current, item]);
+    }
+  };
+
+  const filteredJobs = useMemo(() => {
+    return JOBS.filter(job => {
+      // Search Filter
+      const searchLower = searchQuery.toLowerCase();
+      const matchesSearch =
+        job.title.toLowerCase().includes(searchLower) ||
+        job.company.toLowerCase().includes(searchLower) ||
+        job.tags.some(tag => tag.toLowerCase().includes(searchLower));
+
+      // Job Type Filter
+      const matchesType = selectedTypes.length === 0 || selectedTypes.includes(job.type);
+
+      // Experience Filter (Matching logic based on job tags or data)
+      // Note: In a real app, 'experience' should be a normalized field. 
+      // Here we check if any selected experience keyword matches the job description or batch logic roughly,
+      // or we can strictly match if we add an 'experience' field to mockData.
+      // For now, let's assume 'batch' or 'tags' covers some experience, 
+      // but ideally we need an 'experienceLevel' field. 
+      // I will map the filter labels to checks on the job data.
+
+      let matchesExperience = true;
+      if (selectedExperience.length > 0) {
+        matchesExperience = selectedExperience.some(exp => {
+          if (exp === "Fresher") return job.tags.includes("Freshers") || job.tags.includes("Internship");
+          if (exp === "0-1 Years") return job.tags.includes("Freshers") || job.requirements.some(r => r.includes("0-1") || r.includes("0-2"));
+          // Fallback for demo: if no explicit field, show all or rely on tags
+          return true;
+        });
+      }
+
+      return matchesSearch && matchesType && matchesExperience;
+    });
+  }, [searchQuery, selectedTypes, selectedExperience]);
+
   return (
     <div className="min-h-screen flex flex-col bg-muted/10 font-sans">
       <Navbar />
-      
+
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="flex flex-col md:flex-row gap-8">
-          
-          {/* Sidebar Filter - Mock */}
+
+          {/* Sidebar Filter */}
           <aside className="w-full md:w-64 space-y-8 h-fit sticky top-24 hidden md:block">
             <div className="space-y-4">
               <h3 className="font-heading font-semibold text-lg flex items-center gap-2">
                 <Filter className="h-4 w-4" /> Filters
               </h3>
-              
+
               <div className="space-y-4 p-4 bg-card border border-border rounded-xl">
                 <div>
                   <h4 className="font-medium mb-3 text-sm">Job Type</h4>
                   <div className="space-y-2">
                     {['Full Time', 'Internship', 'Contract', 'Freelance'].map((type) => (
                       <div key={type} className="flex items-center space-x-2">
-                        <Checkbox id={type} />
-                        <label htmlFor={type} className="text-sm text-muted-foreground leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        <Checkbox
+                          id={type}
+                          checked={selectedTypes.includes(type)}
+                          onCheckedChange={() => toggleFilter(type, selectedTypes, setSelectedTypes)}
+                        />
+                        <label htmlFor={type} className="text-sm text-muted-foreground leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer">
                           {type}
                         </label>
                       </div>
@@ -44,8 +95,12 @@ export default function Jobs() {
                   <div className="space-y-2">
                     {['Fresher', '0-1 Years', '1-3 Years', '3+ Years'].map((exp) => (
                       <div key={exp} className="flex items-center space-x-2">
-                        <Checkbox id={exp} />
-                        <label htmlFor={exp} className="text-sm text-muted-foreground leading-none">
+                        <Checkbox
+                          id={exp}
+                          checked={selectedExperience.includes(exp)}
+                          onCheckedChange={() => toggleFilter(exp, selectedExperience, setSelectedExperience)}
+                        />
+                        <label htmlFor={exp} className="text-sm text-muted-foreground leading-none cursor-pointer">
                           {exp}
                         </label>
                       </div>
@@ -63,30 +118,39 @@ export default function Jobs() {
               <div className="flex gap-4">
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input placeholder="Search jobs, skills, or companies..." className="pl-10 bg-white" />
+                  <Input
+                    placeholder="Search jobs, skills, or companies..."
+                    className="pl-10 bg-white"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
                 </div>
                 <Button className="bg-primary text-white">Search</Button>
               </div>
             </div>
 
             <div className="grid gap-4">
-              {JOBS.map((job) => (
-                <JobCard key={job.id} job={job} />
-              ))}
-              {/* Duplicate for demo volume */}
-              {JOBS.map((job) => (
-                <JobCard key={`${job.id}-dup`} job={{...job, id: `${job.id}-dup`}} />
-              ))}
+              {filteredJobs.length > 0 ? (
+                filteredJobs.map((job) => (
+                  <JobCard key={job.id} job={job} />
+                ))
+              ) : (
+                <div className="text-center py-12 text-muted-foreground">
+                  No jobs found matching your criteria.
+                </div>
+              )}
             </div>
 
-            <div className="mt-12 flex justify-center">
-              <Button variant="outline" size="lg" className="w-full md:w-auto">Load More Jobs</Button>
-            </div>
+            {filteredJobs.length > 0 && (
+              <div className="mt-12 flex justify-center">
+                <Button variant="outline" size="lg" className="w-full md:w-auto">Load More Jobs</Button>
+              </div>
+            )}
           </main>
 
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );

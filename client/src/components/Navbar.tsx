@@ -28,60 +28,47 @@ export default function Navbar() {
             </a>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            <div className="flex gap-6">
+          <div className="flex gap-6">
+            {navLinks.map((link) => (
+              <Link key={link.name} href={link.href}>
+                <a className={`text-sm font-medium transition-colors hover:text-primary ${location === link.href ? "text-primary" : "text-muted-foreground"
+                  }`}>
+                  {link.name}
+                </a>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2 text-muted-foreground"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X /> : <Menu />}
+        </button>
+      </div>
+
+
+      {/* Mobile Nav */}
+      {
+        isOpen && (
+          <div className="md:hidden border-t border-border p-4 bg-background">
+            <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <Link key={link.name} href={link.href}>
-                  <a className={`text-sm font-medium transition-colors hover:text-primary ${
-                    location === link.href ? "text-primary" : "text-muted-foreground"
-                  }`}>
+                  <a
+                    className="text-sm font-medium py-2 text-foreground/80 hover:text-primary"
+                    onClick={() => setIsOpen(false)}
+                  >
                     {link.name}
                   </a>
                 </Link>
               ))}
             </div>
-            <div className="flex items-center gap-4">
-               <Button variant="ghost" className="text-muted-foreground hover:text-primary">
-                 Log In
-               </Button>
-               <Button className="bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/20">
-                 Join Now
-               </Button>
-            </div>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-muted-foreground"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Nav */}
-      {isOpen && (
-        <div className="md:hidden border-t border-border p-4 bg-background">
-          <div className="flex flex-col space-y-4">
-            {navLinks.map((link) => (
-              <Link key={link.name} href={link.href}>
-                <a 
-                  className="text-sm font-medium py-2 text-foreground/80 hover:text-primary"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </a>
-              </Link>
-            ))}
-            <div className="pt-4 flex flex-col gap-2">
-              <Button variant="outline" className="w-full justify-center">Log In</Button>
-              <Button className="w-full bg-accent hover:bg-accent/90 text-white justify-center">Join Now</Button>
-            </div>
-          </div>
-        </div>
-      )}
-    </nav>
+        )
+      }
+    </nav >
   );
 }

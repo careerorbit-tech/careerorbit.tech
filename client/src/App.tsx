@@ -10,6 +10,10 @@ import JobDetail from "@/pages/JobDetail";
 import About from "@/pages/About";
 import Privacy from "@/pages/Privacy";
 
+import ResumeTips from "@/pages/ResumeTips";
+import InterviewPrep from "@/pages/InterviewPrep";
+import PlacementGuides from "@/pages/PlacementGuides";
+
 function Router() {
   return (
     <Switch>
@@ -18,6 +22,9 @@ function Router() {
       <Route path="/jobs/:id" component={JobDetail} />
       <Route path="/about" component={About} />
       <Route path="/privacy" component={Privacy} />
+      <Route path="/resume-tips" component={ResumeTips} />
+      <Route path="/interview-prep" component={InterviewPrep} />
+      <Route path="/placement-guides" component={PlacementGuides} />
       <Route component={NotFound} />
     </Switch>
   );

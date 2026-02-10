@@ -13,109 +13,130 @@ export interface Job {
   description: string;
   requirements: string[];
   batch: string[];
+  experience: string; // Fresher, 0-1 Years, 1-3 Years, 3+ Years
+  applyLink?: string;
 }
 
 export const JOBS: Job[] = [
+  //08-02-2026
   {
     id: "1",
-    title: "Graduate Engineer Trainee",
-    company: "TechSolutions Inc.",
-    logo: "https://ui-avatars.com/api/?name=Tech+Solutions&background=0D8ABC&color=fff",
-    location: "Bangalore, India",
+    title: "Junior Engineer – Full Stack Developer",
+    company: "Cornerstone OnDemand",
+    logo: "https://ui-avatars.com/api/?name=Cornerstone+OnDemand&background=0D8ABC&color=fff",
+    location: "Pune, Maharashtra, India",
     type: "Full Time",
-    salary: "₹4.5 - 6.5 LPA",
-    tags: ["Freshers", "2024 Batch", "Java"],
-    postedAt: "2 hours ago",
-    batch: ["2023", "2024", "2025"],
-    description: "We are looking for enthusiastic Graduate Engineer Trainees to join our backend development team. You will be trained on Java Spring Boot and Microservices architecture.",
+    salary: "₹3.8 - 5.0 LPA (Estimated)",
+    tags: ["Full Stack", "React", "Node.js", "AWS", "Cloud Engineering"],
+    postedAt: "04 Feb 2026",
+    batch: ["2022", "2023", "2024", "2025"],
+    experience: "0-2 Years",
+    description: "Join the Cloud Engineering Team to design, build, and optimize cloud-native applications using React, Node.js, TypeScript, .NET/Java & AWS, collaborating with cross-functional teams to deliver scalable solutions.",
     requirements: [
-      "B.E/B.Tech in CS/IT/ECE",
-      "Strong knowledge of Java basics",
-      "Good problem-solving skills",
-      "Knowledge of SQL is a plus"
-    ]
+      "Bachelor’s degree in CS/Engineering (or equivalent experience)",
+      "Experience with React, Node.js, TypeScript",
+      "Knowledge of .NET or Java backend",
+      "Hands-on with AWS cloud services",
+      "Understanding of CI/CD and Docker",
+      "Strong problem-solving and communication skills"
+    ],
+    applyLink: "https://cornerstone.csod.com/ux/ats/careersite/2/home/requisition/10876?c=cornerstone&sq=Junior%20Engineer"
   },
   {
     id: "2",
-    title: "Software Development Intern",
-    company: "InnovateX",
-    logo: "https://ui-avatars.com/api/?name=Innovate+X&background=eb4034&color=fff",
-    location: "Remote",
-    type: "Internship",
-    salary: "₹15,000 / month",
-    tags: ["Internship", "Remote", "React"],
-    postedAt: "5 hours ago",
-    batch: ["2025", "2026"],
-    description: "Join our fast-paced startup as a frontend intern. You will work closely with our senior developers to build responsive web applications using React and Tailwind CSS.",
+    title: "Technology Support Engineer",
+    company: "Accenture",
+    logo: "https://ui-avatars.com/api/?name=Accenture&background=eb4034&color=fff",
+    location: "Navi Mumbai, Maharashtra, India",
+    type: "Full Time",
+    salary: "Not disclosed",
+    tags: ["Support", "Windows", "Troubleshooting"],
+    postedAt: "Recent",
+    batch: ["2022", "2023", "2024", "2025"],
+    experience: "0-2 Years",
+    description: "Accenture is hiring a Technology Support Engineer to resolve incidents across business systems, ensure operational stability, manage change requests, update knowledge bases, and collaborate with service teams for issue resolution. :contentReference[oaicite:0]{index=0}",
     requirements: [
-      "Currently pursuing B.Tech/BCA",
-      "Familiarity with HTML, CSS, JavaScript",
-      "Basic understanding of React",
-      "Eagerness to learn"
-    ]
+      "Proficiency in Microsoft Windows Desktop Management",
+      "Experience with incident management systems",
+      "Remote desktop support familiarity",
+      "Good troubleshooting and communication skills",
+      "15 years of full-time education required"
+    ],
+    applyLink: "https://www.accenture.com/in-en/careers/jobdetails?id=ATCI-5366571-S1954086_en&src=LINKEDINJP"
   },
   {
     id: "3",
-    title: "Associate Analyst",
-    company: "Global Systems",
-    logo: "https://ui-avatars.com/api/?name=Global+Systems&background=34eb89&color=fff",
-    location: "Hyderabad, India",
+    title: "Software Engineer – Backend",
+    company: "Modulr Finance",
+    logo: "https://ui-avatars.com/api/?name=Modulr+Finance&background=34eb89&color=fff",
+    location: "Pune, Maharashtra, India",
     type: "Full Time",
-    salary: "₹4.0 - 5.0 LPA",
-    tags: ["MNC", "Hiring Drive", "Analyst"],
-    postedAt: "1 day ago",
-    batch: ["2023", "2024"],
-    description: "Global Systems is hiring for Associate Analyst roles. This is a great opportunity to start your career in a multinational environment with excellent training programs.",
+    salary: "Not disclosed",
+    tags: ["Backend", "Java", "Microservices", "Fintech"],
+    postedAt: "Recent",
+    batch: ["2022", "2023", "2024", "2025"],
+    experience: "0-3 Years",
+    description: "Modulr Finance is hiring a Backend Software Engineer to contribute to building scalable, reliable backend systems for its embedded payments platform, working with distributed microservices and REST APIs. :contentReference[oaicite:1]{index=1}",
     requirements: [
-      "Any Graduate (B.Sc, B.Com, B.Tech)",
-      "Excellent communication skills",
-      "Basic computer proficiency",
-      "Willing to work in rotational shifts"
-    ]
+      "Experience with Java (17+) or similar backend languages",
+      "Build and evolve microservices",
+      "Design and maintain RESTful APIs",
+      "Work with PostgreSQL and other data stores",
+      "Collaborative team player with strong engineering fundamentals"
+    ],
+    applyLink: "https://job-boards.greenhouse.io/modulrfinance/jobs/7735424002?gh_jid=7735424002&source=LinkedIn"
   },
   {
     id: "4",
-    title: "Junior Data Engineer",
-    company: "DataFlow",
-    logo: "https://ui-avatars.com/api/?name=Data+Flow&background=6b34eb&color=fff",
-    location: "Pune, India",
+    title: "Data Analyst",
+    company: "NTT DATA",
+    logo: "https://ui-avatars.com/api/?name=NTT+DATA&background=6b34eb&color=fff",
+    location: "Remote / Karnataka, India",
     type: "Full Time",
-    salary: "₹5.0 - 8.0 LPA",
-    tags: ["Data Engineering", "Python", "SQL"],
-    postedAt: "2 days ago",
-    batch: ["2023", "2024"],
-    description: "We are seeking a Junior Data Engineer to help build and maintain our data pipelines. Ideal for candidates who love Python and SQL.",
+    salary: "Not disclosed",
+    tags: ["SQL", "Python", "Power BI", "Analytics"],
+    postedAt: "Recent",
+    batch: ["2022", "2023", "2024", "2025"],
+    experience: "0-3 Years",
+    description: "NTT DATA is seeking a Data Analyst to analyze large datasets, create dashboards, perform EDA, and collaborate with stakeholders using SQL, Python, and Power BI tools. :contentReference[oaicite:2]{index=2}",
     requirements: [
-      "B.Tech in CS or related field",
-      "Strong Python scripting skills",
-      "Understanding of ETL processes",
-      "Experience with SQL databases"
-    ]
+      "Strong SQL proficiency",
+      "Python for data cleaning and analytics",
+      "Power BI dashboarding",
+      "Experience with notebook environments",
+      "Statistical analysis and data storytelling skills"
+    ],
+    applyLink: "https://careers.services.global.ntt/global/en/job/31bc3bcd4dfa200/Data-Analyst"
   },
   {
     id: "5",
-    title: "UI/UX Design Intern",
-    company: "Creative Studio",
-    logo: "https://ui-avatars.com/api/?name=Creative+Studio&background=eb34c6&color=fff",
-    location: "Mumbai, India",
-    type: "Internship",
-    salary: "₹10,000 - ₹20,000 / month",
-    tags: ["Design", "Figma", "Creative"],
-    postedAt: "3 days ago",
-    batch: ["2024", "2025"],
-    description: "Passionate about design? Join our creative team and work on real client projects. You will learn Figma, prototyping, and user research.",
+    title: "Software Engineer (Inferred Entry Role)",
+    company: "Emerson",
+    logo: "https://ui-avatars.com/api/?name=Emerson&background=1abc9c&color=fff",
+    location: "Pune, Maharashtra, India",
+    type: "Full Time",
+    salary: "Not disclosed",
+    tags: ["C#", ".NET", "Agile", "Industrial Software"],
+    postedAt: "09 Jan 2026",
+    batch: ["2022", "2023", "2024", "2025"],
+    experience: "0-2 Years",
+    description: "Emerson is hiring Software Engineers to design and develop software for industrial automation, participate in agile development, code review, QA testing, and technical support activities. (Full job description was provided by user.)",
     requirements: [
-      "Design portfolio is a must",
-      "Knowledge of Figma/Adobe XD",
-      "Good visual design sense",
-      "Communication skills"
-    ]
+      "Hands-on experience with C# and .NET framework",
+      "Version control (Git)",
+      "Object-oriented programming fundamentals",
+      "QA and agile SDLC experience",
+      "Strong problem-solving and communication skills"
+    ],
+    applyLink: "https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/25030499?keyword=engineer&location=India&locationId=300000000228786&locationLevel=country&mode=location"
   }
+
+
 ];
 
 export const STATS = [
-  { label: "Active Jobs", value: "500+", icon: Building2 },
-  { label: "Companies", value: "120+", icon: MapPin },
-  { label: "Daily Updates", value: "50+", icon: Clock },
-  { label: "Hired Students", value: "10k+", icon: GraduationCap },
+  { label: "Active Jobs", value: "40+", icon: Building2 },
+  { label: "Companies", value: "12+", icon: MapPin },
+  { label: "Daily Updates", value: "5+", icon: Clock },
+  { label: "Hired Students", value: "100+", icon: GraduationCap },
 ];

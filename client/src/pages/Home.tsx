@@ -13,11 +13,11 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-background font-sans">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative pt-20 pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 to-background -z-10" />
-        
+
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
@@ -28,9 +28,9 @@ export default function Home() {
                 </span>
                 Verified Daily Updates
               </div>
-              
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-foreground tracking-tight leading-[1.1]">
-                Launch Your Career with <br/>
+                Launch Your Career with <br />
                 <span className="text-primary relative inline-block">
                   Top Opportunities
                   <svg className="absolute w-full h-3 -bottom-1 left-0 text-accent/30 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
@@ -38,11 +38,11 @@ export default function Home() {
                   </svg>
                 </span>
               </h1>
-              
+
               <p className="text-lg text-muted-foreground md:max-w-xl leading-relaxed">
                 Discover the latest off-campus drives, internships, and fresher jobs at top tech companies. Curated daily for your success.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/jobs">
                   <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 h-12 shadow-lg shadow-primary/25">
@@ -50,10 +50,12 @@ export default function Home() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
-                <Button size="lg" variant="outline" className="border-primary/20 hover:border-primary/50 text-foreground hover:bg-secondary h-12">
+
+                <Button onClick={() => window.location.href = 'https://www.instagram.com/careerorbit.tech'} size="lg" variant="outline" className="border-primary/20 hover:border-primary/50 text-foreground hover:bg-secondary h-12">
                   <Instagram className="mr-2 h-4 w-4 text-accent" />
                   Follow Updates
                 </Button>
+
               </div>
 
               <div className="flex items-center gap-6 pt-4 text-sm font-medium text-muted-foreground">
@@ -74,12 +76,12 @@ export default function Home() {
 
             <div className="relative animate-in fade-in slide-in-from-right-8 duration-1000 delay-200 hidden lg:block">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent opacity-20 blur-3xl rounded-full -z-10" />
-              <img 
-                src={heroImage} 
-                alt="Career Growth Technology" 
+              <img
+                src={heroImage}
+                alt="Career Growth Technology"
                 className="rounded-2xl shadow-2xl border border-white/20 backdrop-blur-sm w-full object-cover transform rotate-1 hover:rotate-0 transition-transform duration-500"
               />
-              
+
               {/* Floating Cards */}
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-border animate-bounce duration-[3000ms]">
                 <div className="flex items-center gap-3">
@@ -128,7 +130,7 @@ export default function Home() {
               </Button>
             </Link>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredJobs.map((job) => (
               <JobCard key={job.id} job={job} />
@@ -139,20 +141,20 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-24 bg-primary text-white relative overflow-hidden">
-         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
-         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center space-y-8">
-           <h2 className="text-3xl md:text-5xl font-bold font-heading">Ready to Start Your Career?</h2>
-           <p className="text-primary-foreground/80 max-w-2xl mx-auto text-lg">
-             Join thousands of students and professionals who found their dream job through CareerOrbit.
-           </p>
-           <div className="flex justify-center gap-4">
-             <Link href="/jobs">
-               <Button size="lg" className="bg-accent hover:bg-accent/90 text-white h-14 px-8 text-lg font-semibold shadow-xl">
-                 Explore Jobs Now
-               </Button>
-             </Link>
-           </div>
-         </div>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center space-y-8">
+          <h2 className="text-3xl md:text-5xl font-bold font-heading">Ready to Start Your Career?</h2>
+          <p className="text-primary-foreground/80 max-w-2xl mx-auto text-lg">
+            Join thousands of students and professionals who found their dream job through CareerOrbit.tech
+          </p>
+          <div className="flex justify-center gap-4">
+            <Link href="/jobs">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white h-14 px-8 text-lg font-semibold shadow-xl">
+                Explore Jobs Now
+              </Button>
+            </Link>
+          </div>
+        </div>
       </section>
 
       <Footer />

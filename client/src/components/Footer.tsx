@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Rocket, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Rocket, Instagram, Linkedin, Twitter, Youtube, Facebook } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -19,7 +19,7 @@ export default function Footer() {
               Your trusted platform for the latest off-campus drives, internships, and fresher job openings in India.
             </p>
           </div>
-          
+
           <div>
             <h3 className="font-heading font-semibold text-foreground mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -33,28 +33,28 @@ export default function Footer() {
           <div>
             <h3 className="font-heading font-semibold text-foreground mb-4">Resources</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Resume Tips</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Interview Prep</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Placement Guides</a></li>
+              <li><Link href="/resume-tips"><a className="hover:text-primary transition-colors">Resume Tips</a></Link></li>
+              <li><Link href="/interview-prep"><a className="hover:text-primary transition-colors">Interview Prep</a></Link></li>
+              <li><Link href="/placement-guides"><a className="hover:text-primary transition-colors">Placement Guides</a></Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-heading font-semibold text-foreground mb-4">Follow Us</h3>
             <div className="flex gap-4">
-              <a href="#" className="h-10 w-10 flex items-center justify-center rounded-full bg-background border border-border hover:border-primary hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/careerorbit.tech" className="h-10 w-10 flex items-center justify-center rounded-full bg-background border border-border hover:border-primary hover:text-primary transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="h-10 w-10 flex items-center justify-center rounded-full bg-background border border-border hover:border-primary hover:text-primary transition-colors">
-                <Linkedin className="h-5 w-5" />
+              <a href="https://www.facebook.com/profile.php?id=61587419666890" className="h-10 w-10 flex items-center justify-center rounded-full bg-background border border-border hover:border-primary hover:text-primary transition-colors">
+                <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="h-10 w-10 flex items-center justify-center rounded-full bg-background border border-border hover:border-primary hover:text-primary transition-colors">
-                <Twitter className="h-5 w-5" />
+              <a href="https://www.youtube.com/@CareerOrbitTech" className="h-10 w-10 flex items-center justify-center rounded-full bg-background border border-border hover:border-primary hover:text-primary transition-colors">
+                <Youtube className="h-5 w-5" />
               </a>
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-border mt-12 pt-8 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} CareerOrbit.Tech. All rights reserved.</p>
         </div>
