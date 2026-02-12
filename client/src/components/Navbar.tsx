@@ -28,7 +28,7 @@ export default function Navbar() {
             </a>
           </Link>
 
-          <div className="flex gap-6">
+          <div className="hidden md:flex gap-6">
             {navLinks.map((link) => (
               <Link key={link.name} href={link.href}>
                 <a className={`text-sm font-medium transition-colors hover:text-primary ${location === link.href ? "text-primary" : "text-muted-foreground"
@@ -38,15 +38,15 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-        </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2 text-muted-foreground"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X /> : <Menu />}
-        </button>
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 text-muted-foreground"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
 
