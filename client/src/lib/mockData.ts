@@ -129,6 +129,121 @@ export const JOBS: Job[] = [
       "Strong problem-solving and communication skills"
     ],
     applyLink: "https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/25030499?keyword=engineer&location=India&locationId=300000000228786&locationLevel=country&mode=location"
+  },
+
+  {
+    id: "6",
+    title: "Associate Software Engineer",
+    company: "Empower",
+    logo: "https://ui-avatars.com/api/?name=Empower&background=0d6efd&color=fff",
+    location: "India (As per job listing)",
+    type: "Full Time",
+    salary: "Not disclosed",
+    tags: ["Java", "Spring Boot", "Microservices", "SQL", "Agile"],
+    postedAt: "Feb 2026",
+    batch: ["2022", "2023", "2024", "2025"],
+    experience: "0-2 Years",
+    description: "Empower is hiring Associate Software Engineers to develop scalable backend services, work on microservices architecture, write clean and efficient code, and collaborate in agile teams to deliver financial technology solutions.",
+    requirements: [
+      "Strong knowledge of Java and Spring Boot",
+      "Understanding of REST APIs and microservices",
+      "Experience with relational databases (SQL)",
+      "Familiarity with Git and agile methodologies",
+      "Strong analytical and problem-solving skills"
+    ],
+    applyLink: "https://jobs.empower.com/job/-/-/42743/91822546048"
+  },
+
+  {
+    id: "7",
+    title: "Software Engineer",
+    company: "Enveu",
+    logo: "https://ui-avatars.com/api/?name=Enveu&background=6f42c1&color=fff",
+    location: "India",
+    type: "Full Time",
+    salary: "Not disclosed",
+    tags: ["JavaScript", "React", "Node.js", "AWS", "API Development"],
+    postedAt: "Feb 2026",
+    batch: ["2022", "2023", "2024", "2025"],
+    experience: "0-3 Years",
+    description: "Enveu is looking for Software Engineers to build and maintain OTT platform solutions, develop scalable web applications, integrate APIs, and collaborate with cross-functional teams.",
+    requirements: [
+      "Strong knowledge of JavaScript and React",
+      "Experience with Node.js backend development",
+      "Understanding of REST APIs",
+      "Knowledge of cloud platforms (AWS preferred)",
+      "Good communication and teamwork skills"
+    ],
+    applyLink: "https://enveu.keka.com/careers/jobdetails/128956"
+  },
+
+  {
+    id: "8",
+    title: "Software Development Engineer",
+    company: "Autodesk",
+    logo: "https://ui-avatars.com/api/?name=Autodesk&background=f39c12&color=fff",
+    location: "Bengaluru, Karnataka, India",
+    type: "Full Time",
+    salary: "Not disclosed",
+    tags: ["C++", "Python", "Cloud", "Data Structures", "Algorithms"],
+    postedAt: "Feb 2026",
+    batch: ["2021", "2022", "2023", "2024"],
+    experience: "1-3 Years",
+    description: "Autodesk is hiring Software Development Engineers to design, build, and maintain scalable engineering software solutions, improve performance, and contribute to cloud-based product development.",
+    requirements: [
+      "Strong programming skills in C++ or Python",
+      "Solid understanding of data structures and algorithms",
+      "Experience with cloud technologies",
+      "Problem-solving mindset",
+      "Good communication skills"
+    ],
+    applyLink: "http://autodesk.wd1.myworkdayjobs.com/Ext/job/Bengaluru-IND/Software-Development-Engineer_26WD95482"
+  },
+
+  {
+    id: "9",
+    title: "Data Engineer II",
+    company: "Thermo Fisher Scientific",
+    logo: "https://ui-avatars.com/api/?name=Thermo+Fisher&background=e74c3c&color=fff",
+    location: "India (As per job listing)",
+    type: "Full Time",
+    salary: "Not disclosed",
+    tags: ["Python", "SQL", "ETL", "Data Pipelines", "Cloud"],
+    postedAt: "Feb 2026",
+    batch: ["2020", "2021", "2022", "2023"],
+    experience: "2+ Years",
+    description: "Thermo Fisher Scientific is hiring a Data Engineer II to design and maintain data pipelines, manage ETL processes, and support analytics initiatives by ensuring data integrity and scalability.",
+    requirements: [
+      "Strong Python and SQL skills",
+      "Experience building ETL pipelines",
+      "Knowledge of cloud platforms",
+      "Understanding of data warehousing concepts",
+      "Strong analytical and debugging skills"
+    ],
+    applyLink: "https://jobs.thermofisher.com/global/en/job/R-01336905/Data-Engineer-II"
+  },
+
+  {
+    id: "10",
+    title: "Software Engineer 1",
+    company: "Intuit",
+    logo: "https://ui-avatars.com/api/?name=Intuit&background=3498db&color=fff",
+    location: "Bengaluru, Karnataka, India",
+    type: "Full Time",
+    salary: "Not disclosed",
+    tags: ["Java", "Spring", "Microservices", "Cloud", "DSA"],
+    postedAt: "Feb 2026",
+    batch: ["2022", "2023", "2024"],
+    experience: "0-2 Years",
+    description: "Intuit is hiring Software Engineer 1 to build scalable financial software systems, contribute to backend services, write high-quality code, and collaborate in agile development teams.",
+    requirements: [
+      "Strong programming skills (Java preferred)",
+      "Understanding of data structures and algorithms",
+      "Experience with REST APIs and microservices",
+      "Familiarity with cloud platforms",
+      "Strong problem-solving and communication skills"
+    ],
+    applyLink: "https://jobs.intuit.com/job/bengaluru/software-engineer-1/27595/90402464720?cid=job_li"
   }
 
 
